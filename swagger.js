@@ -5,7 +5,7 @@ const doc = {
         title: 'CineLog API',
         description: 'API to catalog movies, user lists, and reviews.',
     },
-    host: process.env.NODE_ENV === 'production' ? 'https://cinelog-api.onrender.com' : 'localhost:8080',
+    host: process.env.NODE_ENV === 'production' ? 'cinelog-api.onrender.com' : 'localhost:8080',
     schemes: process.env.NODE_ENV === 'production' ? ['https'] : ['http'],
     definitions: {
         Movie: {
