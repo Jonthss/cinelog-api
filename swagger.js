@@ -5,8 +5,8 @@ const doc = {
         title: 'CineLog API',
         description: 'API to catalog movies, user lists, and reviews.',
     },
-    host: 'localhost:8080', // When in production, change to your Render/Vercel link
-    schemes: ['http'], // In production, change to ['https']
+    host: process.env.NODE_ENV === 'production' ? 'cinelog-api.onrender.com' : 'localhost:8080',
+    schemes: process.env.NODE_ENV === 'production' ? ['https'] : ['http'],
     definitions: {
         Movie: {
             title: "Inception",
