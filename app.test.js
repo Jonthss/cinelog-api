@@ -64,4 +64,21 @@ describe('API GET Routes Tests', () => {
             expect(res.body).toHaveProperty('_id', listId);
         });
     });
+
+
+    describe('Reviews API', () => {
+        it('should fetch all reviews', async () => {
+            const res = await request(appUrl).get('/reviews');
+            expect(res.statusCode).toEqual(200);
+            expect(res.headers['content-type']).toMatch(/json/);
+            expect(Array.isArray(res.body)).toBe(true);
+        });
+
+        it('should fetch a single review by ID', async () => {
+            const reviewId = '68ea60f96c611acf2d8a9b59';
+            const res = await request(appUrl).get(`/reviews/${reviewId}`);
+            expect(res.statusCode).toEqual(200);
+            expect(res.body).toHaveProperty('_id', reviewId);
+        });
+    });
 });
