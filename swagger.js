@@ -29,6 +29,12 @@ const doc = {
             email: "john.doe@example.com",
             password: "password123",
             role: "user"
+        },
+        Review: {
+            userId: "60d5ecf3e5b3f2a8c4f9d8a3",
+            movieId: "60d5ecf3e5b3f2a8c4f9d8a1",
+            rating: 9,
+            comment: "An amazing movie with a mind-bending plot!"
         }
     }
 };

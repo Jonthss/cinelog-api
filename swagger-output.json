@@ -510,6 +510,74 @@
           }
         }
       }
+    },
+    "/reviews/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/reviews/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -583,6 +651,27 @@
         "role": {
           "type": "string",
           "example": "user"
+        }
+      }
+    },
+    "Review": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "example": "60d5ecf3e5b3f2a8c4f9d8a3"
+        },
+        "movieId": {
+          "type": "string",
+          "example": "60d5ecf3e5b3f2a8c4f9d8a1"
+        },
+        "rating": {
+          "type": "number",
+          "example": 9
+        },
+        "comment": {
+          "type": "string",
+          "example": "An amazing movie with a mind-bending plot!"
         }
       }
     }
