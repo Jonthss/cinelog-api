@@ -22,12 +22,19 @@ const doc = {
                 "60d5ecf3e5b3f2a8c4f9d8a1",
                 "60d5ecf3e5b3f2a8c4f9d8a2"
             ]
+        },
+        User: {
+            firstName: "John",
+            lastName: "Doe",
+            email: "john.doe@example.com",
+            password: "password123",
+            role: "user"
         }
     }
 };
 
-const outputFile = './swagger-output.json'; // Where the file will be saved
-const endpointsFiles = ['./routes/index.js']; // The main file that calls all other routes
+const outputFile = './swagger-output.json';
+const endpointsFiles = ['./routes/index.js'];
 
-// Generates swagger.json
+// Gera o swagger.json
 swaggerAutogen(outputFile, endpointsFiles, doc);
