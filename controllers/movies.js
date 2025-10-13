@@ -39,6 +39,13 @@ const createMovie = async (req, res) => {
             genre: req.body.genre,
             rating: req.body.rating
         };
+
+        
+        if (!movie.title || !movie.director || !movie.year || !movie.genre || !movie.rating) {
+            return res.status(400).json({ message: 'title, director, year, genre, and rating are required fields.' });
+        }
+        
+
         const response = await db.collection('movies').insertOne(movie);
         if (response.acknowledged) {
             res.status(201).json({ message: 'Movie created successfully!', movieId: response.insertedId });
@@ -62,6 +69,12 @@ const updateMovie = async (req, res) => {
             genre: req.body.genre,
             rating: req.body.rating
         };
+
+        
+        if (!updatedMovie.title || !updatedMovie.director || !updatedMovie.year || !updatedMovie.genre || !updatedMovie.rating) {
+            return res.status(400).json({ message: 'title, director, year, genre, and rating are required fields.' });
+        }
+
         const response = await db.collection('movies').replaceOne({ _id: movieId }, updatedMovie);
         if (response.modifiedCount > 0) {
             res.status(204).send(); // 204 No Content is a standard response for success with no body

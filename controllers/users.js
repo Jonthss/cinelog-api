@@ -66,6 +66,12 @@ const updateUser = async (req, res) => {
       password: req.body.password,
       role: req.body.role || 'user'
     };
+
+    if (!updatedUser.email || !updatedUser.password || !updatedUser.firstName || !updatedUser.lastName) {
+        return res.status(400).json({ message: 'firstName, lastName, email, and password are required fields.' });
+    }
+  
+
     const response = await db.collection('users').replaceOne({ _id: userId }, updatedUser);
     if (response.modifiedCount > 0) {
       res.status(204).send();
@@ -77,7 +83,7 @@ const updateUser = async (req, res) => {
   }
 };
 
-// DELETE: Deletar um usuário
+
 const deleteUser = async (req, res) => {
   try {
     const db = getDb();
