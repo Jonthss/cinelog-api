@@ -70,7 +70,7 @@ describe('API GET Routes Tests', () => {
         });
 
         it('should fetch a single review by ID', async () => {
-            const reviewId = '68ea60f96c611acf2d8a9b59';
+            const reviewId = '68ea61026c611acf2d8a9b5a';
             const res = await request(appUrl).get(`/reviews/${reviewId}`);
             expect(res.statusCode).toEqual(200);
             expect(res.body).toHaveProperty('_id', reviewId);
